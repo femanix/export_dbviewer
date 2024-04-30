@@ -9,7 +9,7 @@ O aplicativo consiste em um script Python que utiliza a funcionalidade de automa
 ## Requisitos
 
 Certifique-se de ter os seguintes requisitos instalados antes de executar o aplicativo:
-- Python (versão X.X ou superior)
+- Python (versão 3.10.12 ou superior)
 - PyAutoGUI
 - DBF Viewer
 
@@ -24,7 +24,7 @@ git clone https://github.com/seu_usuario/pyautogui-dbf-exporter.git
 2. Instale as dependências usando pip:
 
 ```
-pip install pyautogui
+pip install -r requirements.txt
 ```
 
 ## Uso
