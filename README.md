@@ -1,52 +1,33 @@
-# PyAutoGUI DBF Exporter
+# export_dbviewer
 
-Este é um aplicativo Python que automatiza a exportação de uma tabela aberta no DBF Viewer usando a biblioteca PyAutoGUI.
+Script em Python que automatiza a exportação de uma tabela aberta no DBF Viewer, em blocos de 50 registros, usando [PyAutoGUI](https://pyautogui.readthedocs.io/).
 
-## Descrição
-
-O aplicativo consiste em um script Python que utiliza a funcionalidade de automação de interface gráfica (GUI) fornecida pela biblioteca PyAutoGUI para interagir com o DBF Viewer. Ele automatiza o processo de exportação de uma tabela aberta no DBF Viewer para um formato desejado.
+Fiz para exportar uma tabela com mais de mil registros sem repetir o processo na mão. O script repete o fluxo de salvar e preencher o intervalo de registros até chegar ao fim da tabela.
 
 ## Requisitos
 
-Certifique-se de ter os seguintes requisitos instalados antes de executar o aplicativo:
-- Python (versão 3.10.12 ou superior)
-- PyAutoGUI
-- DBF Viewer
+- Windows, com o DBF Viewer instalado
+- Python 3.10 ou superior
+- Tela em 1920x1080, porque o script clica em uma posição fixa da caixa de diálogo
 
 ## Instalação
 
-1. Clone este repositório em sua máquina local:
-
-```
-git clone https://github.com/seu_usuario/pyautogui-dbf-exporter.git
-```
-
-2. Instale as dependências usando pip:
-
-```
+```bash
+git clone https://github.com/femanix/export_dbviewer.git
+cd export_dbviewer
 pip install -r requirements.txt
 ```
 
 ## Uso
 
-1. Abra o DBF Viewer e carregue a tabela que deseja exportar.
+1. Abra a tabela no DBF Viewer e deixe a pasta de destino já selecionada na caixa de salvar.
+2. Ajuste no topo do `main.py` o registro inicial (`inicio`), o tamanho de cada bloco (`intervalo`) e o total de registros (`fim`).
+3. Rode o script e, nos 3 segundos seguintes, coloque a janela do DBF Viewer em primeiro plano:
 
-2. Execute o script `export_dbf.py`:
-
+```bash
+python main.py
 ```
-python export_dbf.py
-```
 
-3. Siga as instruções apresentadas pelo script para concluir o processo de exportação.
+Cada bloco é salvo com o nome `alunos_export [inicio] - [fim]`.
 
-## Notas
-
-- Este aplicativo foi testado apenas no sistema operacional Windows.
-
-- Certifique-se de ajustar os parâmetros do PyAutoGUI conforme necessário para garantir que as coordenadas e ações estejam corretas para o seu ambiente.
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar uma solicitação de recebimento com melhorias.
-
-
+Para interromper, leve o mouse ao canto superior esquerdo da tela. É a trava de segurança padrão do PyAutoGUI.
